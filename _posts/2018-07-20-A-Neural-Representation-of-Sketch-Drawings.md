@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:     A Neural Representation of Sketch Drawings
-subtitle:   Google“猜画小歌”
+title: A Neural Representation of Sketch Drawings
+subtitle:   Google sketch-RNN
 date:       2018-07-20
 author:     Mily
 header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
-    - NLP
+- NLP
 - RNN
 ---
 

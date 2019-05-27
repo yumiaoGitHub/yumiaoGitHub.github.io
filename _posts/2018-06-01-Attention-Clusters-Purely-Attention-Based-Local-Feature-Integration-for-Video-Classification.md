@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Attention Clusters: Purely Attention Based Local Feature Integration for Video Classification
+title:      Attention Clusters Purely Attention Based Local Feature Integration for Video Classification
 subtitle:   人体动作识别论文阅读
 date:       2018-06-01
 author:     Mily

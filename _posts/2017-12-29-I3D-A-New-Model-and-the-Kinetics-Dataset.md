@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:     I3D: A New Model and the Kinetics Dataset
+title:     I3D A New Model and the Kinetics Dataset
 subtitle:   人体动作识别论文阅读-姿态检测
 date:       2017-12-29
 author:     Mily

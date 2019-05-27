@@ -1,13 +1,12 @@
 ---
 layout:     post
-title:      Lattice Long Short-Term Memory for Human Action Recognition
+title: Lattice Long Short-Term Memory for Human Action Recognition
 subtitle:   人体动作识别论文阅读
 date:       2017-11-29
 author:     Mily
 header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
-    - action recognition
 - LSTM
 ---
 

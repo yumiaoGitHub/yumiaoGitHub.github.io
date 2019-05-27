@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:     MOJITALK: Generating Emotional Responses at Scale
+title: MOJITALK Generating Emotional Responses at Scale
 subtitle:   神奇的表情
 date:       2018-08-18
 author:     Mily
@@ -9,8 +9,6 @@ catalog: true
 tags:
     - 机器学习
 ---
-
-**MOJITALK: Generating Emotional Responses at Scale**
 
 ![img](https://note.youdao.com/yws/public/resource/ad01b691ccf2fd643c7b906c8e30a14f/xmlnote/CBD4978AAAE348E681EF52C94932FE01/15255)
 

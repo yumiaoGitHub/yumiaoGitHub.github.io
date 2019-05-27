@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      MotionNet: Hidden Two-Stream Convolutional Networks for Action Recognition
+title:      MotionNet Hidden Two-Stream Convolutional Networks for Action Recognition
 subtitle:   人体动作识别论文阅读
 date:       2018-03-08
 author:     Mily

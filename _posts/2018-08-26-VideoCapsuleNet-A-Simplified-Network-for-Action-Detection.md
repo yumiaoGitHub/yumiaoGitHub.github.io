@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:     VideoCapsuleNet: A Simplified Network for Action Detection
+title: VideoCapsuleNet:A Simplified Network for Action Detection
 subtitle:   视频胶囊网络
 date:       2018-08-26
 author:     Mily
@@ -9,8 +9,6 @@ catalog: true
 tags:
     - action detection
 ---
-
-# VideoCapsuleNet: A Simplified Network for Action Detection
 
 ![img](https://note.youdao.com/yws/public/resource/f1dfb6bffcf5ebe21c306d62d93bd591/xmlnote/74DC96BAD9B64458B17B60179ADFC6EB/15924)
 
