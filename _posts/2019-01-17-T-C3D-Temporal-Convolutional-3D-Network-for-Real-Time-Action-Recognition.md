@@ -1,5 +1,5 @@
 ---
-ayout: post
+layout: post
 
 title: T-C3D  Temporal Convolutional 3D Network for Real-Time Action Recognition
 
