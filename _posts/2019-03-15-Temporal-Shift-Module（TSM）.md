@@ -34,13 +34,13 @@ TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行�
 
 故分解后的两个操作分别为：
 
-- 位移（基本不消耗计算资源，常规地址偏移指针操作）
+1.位移（基本不消耗计算资源，常规地址偏移指针操作）
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/45E8C5D6BCE34D3283238321A587B66F/20735)
 
-- 权值叠加
+2.权值叠加
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/4354ECF8246B49648B523E3C6B312FE4/22145)
 
 设计TSM模块时候，尽可能多使用位移操作（几乎0计算量），把权值叠加操作放到2D CNN本身的卷积里去做，这样就可在不加任何参数计算量基础上，实现更多功能。
 
@@ -50,7 +50,9 @@ TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行�
 
 
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/EBD3E88487A6419EB271838CB125578A/22112)
+
+
 
 上图中最左边的二维矩阵是 Ti; 
 
@@ -60,29 +62,31 @@ TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行�
 
 ## **整体框架：**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/0552879A175643FC912234ED0931980E/22115)
 
 基础网络是ResNet-50，且在每个 residual unit 后都会加入 残差TSM 模块，当用2D 3x3的卷积时，每次插入TSM模块后的时间感受野都会扩大2，故整个框架最后的时间感受野会很大，足以进行复杂的时空建模。
 
 ## **实验：**
 
-### **1.准确率比较（与TSN比较）**
+**实验：**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+**1.准确率比较（与TSN比较）**
 
-## **2.参数量效率比较（Something-Something dataset较为复杂）**
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/8C62355998BC47BE971BDCB08CDE188A/22114)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+**2.参数量效率比较（Something-Something dataset较为复杂）**
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/81CB538EDFC344D989853AD30F76AAB2/22111)
 
 
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/93525F418C7E45B6973FBCB2CDBDEB38/22117)
+
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/33BBA3F4058E4360BB5DBDE5E8FCDA37/22116)
+
+
+
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/68007772631A4EA2857903F957D463EA/22120)
 
 ## **总结思考：**
 
@@ -96,12 +100,13 @@ TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行�
 
 对于**卷积**操作：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/73F3F35486124CF399D80843CD87E3F8/22118)
 
 对于**全连接**操作：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/706456077EE04AD18D992C13E368F4D4/22121)
 
 ## 参考
 
 [时空建模新文解读：用于高效视频理解的TSM](https://zhuanlan.zhihu.com/p/50798936)
+
