@@ -33,37 +33,33 @@ Kinetics数据集来源于油管，包含400类行为，每一类有大于400条
 
 文章梳理了各时期用深度学习来做行为识别的典型方法：
 
-![img](https://note.youdao.com/yws/public/resource/4810e926dd8d78414bfc6a3aa45c7b0c/xmlnote/7470C48414534333983FC58A30615D4A/6436)
+![clipboard(11)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(9).png)
 
 **a) LSTM（LRCN 14.11）**
 
-![img](https://note.youdao.com/yws/public/resource/4810e926dd8d78414bfc6a3aa45c7b0c/xmlnote/5D88A44374984BFA8ABFA2A8D414043A/6476)
+![clipboard(7)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(7).png)
 
 **b) 3D-ConvNet（14.10）**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(4).png)
 
  vedio clip: c\*l\*h\*w (3\*16\*128\*171)
 
 3D kernel : d\*k\*k    (3\*3\*3)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(1).png)
 
+![clipboard(14)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(14).png)
 
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(6)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(6).png)
 
 用实验证明，3\*3\*3的时空卷积核，是最适合于这种新型神经网络结构的卷积核。
 
 **c) Two-Stream（14.6）**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(8)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(8).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard.png)
 
 空间和时间网络分别给出动作的分类结果，然后把结果融合，使用取平均值或者SVM的方法（实验中显示SVM准确率更高），得到最终结果。
 
@@ -82,13 +78,11 @@ Kinetics数据集来源于油管，包含400类行为，每一类有大于400条
 
 (iii) 在时空邻域加入池化可以增加性能
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(5).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(10)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(10).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(11)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(11).png)
 
 **e) Two-Stream 3D-ConvNet(**I3D**)（17.5）
 
@@ -96,23 +90,19 @@ Kinetics数据集来源于油管，包含400类行为，每一类有大于400条
 
 本文选用的网络结构为**BN-Inception(TSN也是)**，但做了一些改动。如果2D的滤波器为N*N的，那么3D的则为N*N*N的。具体做法是沿着时间维度重复2D滤波器权重N次，并且通过除以N将它们重新缩放。训练的时候将每一条视频采样64帧RGB和64帧flow，经过3D卷积网络分别独立训练，最终计算平均值。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(12)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(12).png)
 
 在**miniKinetics**预训练的模型上操作效果如下：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![2467e973_hd](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/2467e973_hd.jpeg)
 
 对于I3D的效果为什么好，作者解释说I3D有**64帧的感受野**。可以更好地学习时序信息。再就是先用**ImageNet的模型做了预训练**。
 
 如果只使用**UCF101**数据集训练，准确率并不高，与TSN差不多
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(2).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2017-12-29-I3D-A-New-Model-and-the-Kinetics-Dataset/clipboard(3).png)
 
 ## **思考**
 

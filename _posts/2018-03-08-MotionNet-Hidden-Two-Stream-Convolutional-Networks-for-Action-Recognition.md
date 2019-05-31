@@ -25,7 +25,7 @@ tags:
 
 ## **整体模型**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(12)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(12).png)
 
 因为在行为识别中已经**隐含生成的运动信息**，论文称这种模型为hidden （**motion**） two-stream networks。不过需要注意的是，论文中生成的运动信息和传统的光流信息是有区别的。
 
@@ -35,15 +35,11 @@ tags:
 
 **监督训练——FlowNet**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(18)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(18).png)
 
+![clipboard(10)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(10).png)
 
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(2).png)
 
 1.FlowNet以光流标签为ground truth，是有监督训练，数据集小而单一，训练受到限制
 
@@ -51,9 +47,7 @@ tags:
 
 #### **非监督训练——MotionNet**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(5)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(5).png)
 
 论文把光流计算的过程看做是**图像重建**的过程。比如相邻的两帧图片I1和I2，CNN产生光流帧V。在给定V和I2情况下，能够重建I1’帧图像。损失函数的目标是最小化I1’和I1图像的误差。
 
@@ -63,7 +57,7 @@ tags:
 
 #### 1、标准的像素级重建误差函数
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(17)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(17).png)
 
 光流实现的假设前提：
 
@@ -73,7 +67,7 @@ tags:
 
 - 保持空间一致性。即同一子图像的像素点具有相同的运动。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(7)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(7).png)
 
 光流直观理解是：第t帧的时候A点的位置是(x1, y1)，那么我们在第t+1帧的时候再找到A点，假如它的位置是(x2,y2)，那么我们就可以确定A点的运动了：
 
@@ -83,41 +77,33 @@ I1图片中A点坐标为(i , j)   I2图片中A坐标为（i+Vx , j+Vy）
 
 根据亮度不变性， *I*1- *I2=0*
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(11)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(11).png)
 
 #### 2、平滑损失函数
 
 解决光圈问题导致的运动信息的模糊性。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(6)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(6).png)
 
 #### 3、结构相似性（SSIM）损失函数
 
 可以帮助模型学习框架结构，清晰轮廓边界的光流场。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(16)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(16).png)
 
+![clipboard(3)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(3).png)
 
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(9)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(9).png)
 
 ### **CNN架构选择：**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(8)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(13).png)
 
 ### **模型融合：**
 
 - #### **Stacked Temporal Stream**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(15)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(15).png)
 
 在MotionNet直接加入到temporal stream CNN之前，论文采取一些措施：
 
@@ -129,25 +115,23 @@ I1图片中A点坐标为(i , j)   I2图片中A坐标为（i+Vx , j+Vy）
 
 - #### **Branched Temporal Stream**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(4).png)
 
 使用共享参数的方式：MotionNet的encoder过程和Temporal Stream CNN使用相同的参数。训练时，MotionNet先预训练，然后再对时间流调优
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(14)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(14).png)
 
 虽然Branched结构能够提升效率但是没有发挥出与空间流互补的优势！可能是因为破坏了双流法中特殊的结构——将时间和空间分离单独计算表观特征（Appearance）和动态信息（Motion）
 
-
-
 ## **实验分析：**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(8)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(1).png)
 
 速度快了10倍！
 
 将时间网络换成VGG16或者TSN：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(8)](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard(8).png)
 
 
 
@@ -181,4 +165,4 @@ MotionNet不遵守亮度不变的假设，因此处理高饱和或者动态纹�
 
 **附录：整体模型参数**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2018-03-08-MotionNet-Hidden-Two-Stream-Convolutional-Networks-for-Action-Recognition/clipboard.png)

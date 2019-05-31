@@ -21,7 +21,7 @@ tags:
 
 ## **网络模型**
 
-![img](https://note.youdao.com/yws/public/resource/21de8415a5f138992a565aea0fed39a7/xmlnote/32177573011E4A11B66A5748AEE5B7EE/6576)
+![clipboard](/../img/2017-12-28-End-to-end-Video-level-Representation-Learning-for-Action-Recognition/clipboard.png)
 
 橙色表示空间信息流（RGB作为输入），蓝色表示时间信息流（flow作为输入）类似TSN
 
@@ -31,13 +31,11 @@ TPP层将帧层级信息聚合为视频层级的表达方式。最后，两个�
 
 Si为通过Inception卷积层后的特征向量
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2017-12-28-End-to-end-Video-level-Representation-Learning-for-Action-Recognition/clipboard(3).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(8)](/../img/2017-12-28-End-to-end-Video-level-Representation-Learning-for-Action-Recognition/clipboard(8).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2017-12-28-End-to-end-Video-level-Representation-Learning-for-Action-Recognition/clipboard(1).png)
 
 **实验结果得出：以Max Pooling kernel方式的三层TPP 效果最佳！**
 
@@ -47,25 +45,21 @@ Si为通过Inception卷积层后的特征向量
 
 我的预测：二分法取最大值
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2017-12-28-End-to-end-Video-level-Representation-Learning-for-Action-Recognition/clipboard(4).png)
 
 ### **对比：Spatial Pyramid Pooling**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(6)](/../img/2017-12-28-End-to-end-Video-level-Representation-Learning-for-Action-Recognition/clipboard(6).png)
 
 ### **采样帧数的影响**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2017-12-28-End-to-end-Video-level-Representation-Learning-for-Action-Recognition/clipboard(5).png)
 
 由于two-stream ConvNets and TSN在预测时需要late fusion，在测试时也需要固定的输入尺寸。而DTPP可以推广到较为广泛的情况。可以看出，在15-50帧采样的情况下精确度相差不大。
 
 我们即将与全连接层连接的时候，就要使用金字塔池化，使得任意大小的特征图都能够转换成固定大小的特征向量，这就是空间金字塔池化的奥义（多尺度特征提取出固定大小的特征向量）
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-
+![clipboard(7)](/../img/2017-12-28-End-to-end-Video-level-Representation-Learning-for-Action-Recognition/clipboard(7).png)
 
 ### 参考
 

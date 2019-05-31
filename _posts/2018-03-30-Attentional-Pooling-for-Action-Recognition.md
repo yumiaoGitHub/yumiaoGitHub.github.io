@@ -27,21 +27,19 @@ The Robotics Institute, Carnegie Mellon University
 
 **一阶池化：mean和max（一阶操作）**
 
-![img](https://note.youdao.com/yws/public/resource/28ea88f88e2faf8e965acd644ab3af1d/xmlnote/117D3C987A2441E38059D60A08836644/9956)
+![clipboard(2)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(2).png)
 
 **二阶池化：feature map中的每个向量与自身的转置求外积来实现的。**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(4).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(9)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(9).png)
 
 **理论说明：**在[线性代数](http://zh.wikipedia.org/wiki/线性代数)中，n*n的[矩阵](http://zh.wikipedia.org/wiki/矩陣)A的秩是指A[主对角线](http://zh.wikipedia.org/wiki/主對角線)上各个元素的总和，一般记作tr(A)
 
 **Tr()迹操作符来表示两个矢量的内积（结果是个标量：类别得分）**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![0ba8dfb95b104dc6e09e1cd158065020](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/0ba8dfb95b104dc6e09e1cd158065020.png)
 
 n = 16*16 = 256  f 表示通道数 (e.g. 2048)
 
@@ -55,21 +53,19 @@ n = 16*16 = 256  f 表示通道数 (e.g. 2048)
 
 权重矩阵W进行秩为1的近似，将其表示为2个向量a和b的转置的乘积：W = abT
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![conv2d_eq22](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/conv2d_eq22.gif)
 
 根据迹的性质：1.乘法交换律Tr(ABC) = Tr(CAB) 2.标量的迹为其本身推导如下
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(13)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(13).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(11)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(11).png)
 
 **Top-down attention 和 bottom-up attention**
 
 以上公式推导是针对二分类问题的，对于多分类问题，只需要将参数W变为针对每个类不同的Wk即可，公式如下：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(7)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(7).png)
 
 对输入X，计算所有的score(X, k), k=1, 2, ..., N，N为类别数，寻找最大的score值，对应的k即为predict的类别。
 
@@ -79,19 +75,15 @@ n = 16*16 = 256  f 表示通道数 (e.g. 2048)
 
  top-down attention 是用目标驱动的方式来进行visual search，而 bottom-up 则是根据图像的显著性信息来进行visual search，这种分类方式也是**受启发于人脑激励方案：根据自上而下的线索调节关注显著性区域（自下而上反馈）**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(12)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(12).png)
 
 最终
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(15)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(15).png)
 
+![clipboard(14)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(14).png)
 
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(18)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(18).png)
 
 
 
@@ -101,15 +93,13 @@ n = 16*16 = 256  f 表示通道数 (e.g. 2048)
 
 针对正确的类别，Bottom-up、top-down以及两者融合的热图均有明显的激活区域，而对于错误的类别，top-down的热图无显著的激活区域，该结果说明来自top-down的注意力能够正确的定位与类别息息相关的区域；
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(19)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(19).png)
 
 ### **运动识别方法对比：**
 
 HMDB51 dataset using only the RGB stream
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(8)](/../img/2018-03-30-Attentional-Pooling-for-Action-Recognition/clipboard(8).png)
 
 ### **低秩近似实验对比：**
 

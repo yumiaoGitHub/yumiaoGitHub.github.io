@@ -25,15 +25,13 @@ tags:
 
 Two-Stream (Simonyan & Zisserman 2014)
 
-![img](https://note.youdao.com/yws/public/resource/c49d9a6f256d6dc8454709f13f4e0711/xmlnote/DE1FF5500827409FAC5734C76B99ACD9/7898)
+![clipboard(13)](/../img/2018-01-26-What-Actions-are-Needed-for-Understanding-Human-Actions-in-Videos/clipboard(13).png)
 
 Multiple Algorithm Comparison
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(14)](/../img/2018-01-26-What-Actions-are-Needed-for-Understanding-Human-Actions-in-Videos/clipboard(14).png)
 
 *1,2,3,4* 表示连续变量的程度 *N*,*Y* 表示是或否. 蓝色表示分类，棕色表示定位
-
-
 
 ## **现在的动作识别方法在学习什么？**
 
@@ -41,7 +39,7 @@ Multiple Algorithm Comparison
 
 ### **1.错误类型分析**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(8)](/../img/2018-01-26-What-Actions-are-Needed-for-Understanding-Human-Actions-in-Videos/clipboard(8).png)
 
 **相似类混淆（V+O:共享动词和名词 Object/Verb complexity）**
 
@@ -53,7 +51,7 @@ Multiple Algorithm Comparison
 
 虽然更多的数据带来更高的准确率，但是更大的类别尺寸和更好的准确率并没有明确的相关性（P<0.1）（Charades数据集中每一类的样本数量不同）
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-01-26-What-Actions-are-Needed-for-Understanding-Human-Actions-in-Videos/clipboard(4).png)
 
 #### **包含少量样本的类别:**
 
@@ -77,11 +75,11 @@ a）中等大小的人识别效果最好
 
 b) 移除人比移除背景效果更糟，重新训练剪裁过只有人的图片效果更好
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(7)](/../img/2018-01-26-What-Actions-are-Needed-for-Understanding-Human-Actions-in-Videos/clipboard(7).png)
 
 **姿态差异性分析**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(9)](/../img/2018-01-26-What-Actions-are-Needed-for-Understanding-Human-Actions-in-Videos/clipboard(9).png)
 
 姿态差异性：不同类别之间根据相应关节点距离计算的的姿态差异
 
@@ -109,7 +107,7 @@ b) 移除人比移除背景效果更糟，重新训练剪裁过只有人的图�
 
 **5.完美姿态预测（Pose）**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2018-01-26-What-Actions-are-Needed-for-Understanding-Human-Actions-in-Videos/clipboard(3).png)
 
 **a)比较不同的完美预测**
 
@@ -128,9 +126,3 @@ b) 移除人比移除背景效果更糟，重新训练剪裁过只有人的图�
 2.时序信息很重要，小波变换并没有能够掌握到时序信息，采用其他动态信息弥补（IDT）
 
 3.全局观念——基于视频而不是帧的训练与预测。TSN是将视频分段，然后根据图片帧进行分类融合，这就要求每一帧都要归属到对应的类，ActionVLAD提出一种全局的时空融合特征，不要求每一帧的分类完全准确（待研究）
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)

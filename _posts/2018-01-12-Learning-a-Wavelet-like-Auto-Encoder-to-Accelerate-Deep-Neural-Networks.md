@@ -17,11 +17,9 @@ tags:
 
 ## **网络框架**
 
-![img](https://note.youdao.com/yws/public/resource/602a427f495a3a2a33ccb7c6304535e0/xmlnote/3E7E98513023485185ACB44BC9E65D9C/7116)
+![clipboard(10)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(10).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(2)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(13).png)
 
 ### **Encoding layer**
 
@@ -31,17 +29,15 @@ tags:
 
 输入图片经过3层3\*3卷积核（可以比拟为7*7的卷积核的感受野）后，以步长为2作用3\*3卷积进行下采样得到分辨率为原始图片1/2的高频图和低频图，通过增加一个L2范数的约束。对图像像素值的大小进行限制，像素值小的图像就称之为高频信息图。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(7)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(7).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(19)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(19).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(22)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(22).png)
 
 ### **2.Classification**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(17)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(17).png)
 
 IH和IL分别经过一个VGG的卷积部分，得出特征FH,FL； 
 
@@ -55,9 +51,9 @@ IH和IL分别经过一个VGG的卷积部分，得出特征FH,FL；
 
 通过IL和IH恢复原图像作为训练损失函数的比较
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(21)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(21).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(14)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(14).png)
 
 ### **目标函数**
 
@@ -71,33 +67,31 @@ Stage 3: Joint fine tuning
 
 整体训练Loss[3] = 分类Loss[1] + WAE Loss[2]
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(5).png)
 
 #### **分类Loss**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(23)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(23).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(20)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(20).png)
 
 #### WAE Loss
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(18)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(18).png)
 
  Auto-encoder（WAE）主要是看重构误差
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(9)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(9).png)
 
 要获得“高频图”增加的一个约束，用以约束其中一个特征图的像素值的大小： 
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(7)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(7).png)
 
 ## **计算量分析**
 
 对于CNN，所有卷积层的总计算复杂度为：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(11)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(11).png)
 
 d：卷积层数
 
@@ -111,15 +105,13 @@ m：输出特征图尺寸
 
 融合网络中IH通过VGG时通道数n为原来的1/4
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(12)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(12).png)
 
 ## **实验分析**
 
 **Wavelet+CNN**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(15)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(15).png)
 
 **离散小波变换（DWT：9/7实现）**
 
@@ -131,7 +123,7 @@ m：输出特征图尺寸
 
 与WAE思路相同，分解为两个分辨率减半的图片，但是在分解通道上没有L2约束，只用分类损失训练
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(2).png)
 
 （a）为输入图片
 
@@ -143,17 +135,13 @@ m：输出特征图尺寸
 
 **分离通道的分析**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(4)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(4).png)
 
 **总体结果**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(8)](/../img/2018-01-12-Learning-a-Wavelet-like-Auto-Encoder-to-Accelerate-Deep-Neural-Networks/clipboard(8).png)
 
-
-
-参考
+### 参考
 
 [小波变换与应用PPT](<https://note.youdao.com/ynoteshare1/index.html?id=1a567c54579b323b84a012ad959bdbfd&type=note>)
 

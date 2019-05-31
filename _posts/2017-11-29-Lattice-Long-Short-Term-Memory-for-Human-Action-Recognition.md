@@ -14,13 +14,9 @@ tags:
 
 以卷积方式简单地将RNN应用于视频序列隐含地**假定视频中的运动在不同的空间位置上是静止的**。 这个假设对于短期运动是有效的，但是当运动持续时间很长时是无效的。LRCN解决了不同类型的输入问题，然而采用**矩阵乘法**的传统LSTM没有利用视频帧中的空间相关性。 直接将LSTM模型应用于基于视频的动作识别是不令人满意的，因为帧之间的空间相关性和运动动态不能很好地呈现。Lattice-LSTM (晶格LSTM),它通过学习单个空间位置的存储单元的独立隐藏状态转换来扩展LSTM。
 
-### **提出问题——高维数据得到映射函数难！**
+### **提出问题——高维数据得到映射函数难！
 
-$$
-H_{t} = W_{H}H_{t-1}+W_{X}X_{t}
-$$
-
-
+![clipboard](/../img/2017-11-29-Lattice-Long-Short-Term-Memory-for-Human-Action-Recognition/clipboard.png)
 
 ![clipboard(3)](/../img/2017-11-29-Lattice-Long-Short-Term-Memory-for-Human-Action-Recognition/clipboard(3).png)
 
