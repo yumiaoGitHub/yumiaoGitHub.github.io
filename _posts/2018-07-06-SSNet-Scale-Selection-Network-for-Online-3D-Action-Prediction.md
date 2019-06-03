@@ -1,12 +1,11 @@
-layout:     post
-title:      Scale Selection Network for Online 3D Action Prediction
-subtitle:   人体动作识别论文阅读-SSNet
-date:       2018-07-06
-author:     Mily
-header-img: img/post-bg-cook.jpg
-catalog: true
-tags:
-
+    layout:     post
+    title:      Scale Selection Network for Online 3D Action Prediction
+    subtitle:   人体动作识别论文阅读-SSNet
+    date:       2018-07-06
+    author:     Mily
+    header-img: img/post-bg-cook.jpg
+    catalog: true
+    tags:
     - action recognition
 
 ## **摘要**

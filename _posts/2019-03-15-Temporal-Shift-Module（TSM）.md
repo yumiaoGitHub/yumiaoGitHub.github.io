@@ -62,8 +62,6 @@ TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行�
 
 ## **实验：**
 
-**实验：**
-
 **1.准确率比较（与TSN比较）**
 
 ![clipboard(7)](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard(7).png)

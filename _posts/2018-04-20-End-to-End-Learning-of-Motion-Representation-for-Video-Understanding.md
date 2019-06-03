@@ -1,12 +1,11 @@
-layout:     post
-title:      End-to-End Learning of Motion Representation for Video Understanding
-subtitle:   人体动作识别论文阅读-TVNet
-date:       2018-04-20
-author:     Mily
-header-img: img/post-bg-cook.jpg
-catalog: true
-tags:
-
+    layout:     post
+    title:      End-to-End Learning of Motion Representation for Video Understanding
+    subtitle:   人体动作识别论文阅读-TVNet
+    date:       2018-04-20
+    author:     Mily
+    header-img: img/post-bg-cook.jpg
+    catalog: true
+    tags:
     - action recognition
 
 ## **摘要**

@@ -1,12 +1,11 @@
-layout:     post
-title:     A Closer Look at Spatiotemporal Convolutions for Action Recognition
-subtitle:   人体动作识别论文阅读
-date:       2018-06-29
-author:     Mily
-header-img: img/post-bg-cook.jpg
-catalog: true
-tags:
-
+    layout:     post
+    title:     A Closer Look at Spatiotemporal Convolutions for Action Recognition
+    subtitle:   人体动作识别论文阅读
+    date:       2018-06-29
+    author:     Mily
+    header-img: img/post-bg-cook.jpg
+    catalog: true
+    tags:
     - action recognition
 
 ## **摘要**

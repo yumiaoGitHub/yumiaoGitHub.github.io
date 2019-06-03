@@ -32,7 +32,7 @@ tags:
 
 ![clipboard(5)](/../img/2018-07-27-Compressed-Video-Action-Recognition/clipboard(5).png)
 
-![clipboard(8)](../img/2018-07-27-Compressed-Video-Action-Recognition/clipboard(8).png)
+![clipboard(8)](/../img/2018-07-27-Compressed-Video-Action-Recognition/clipboard(8).png)
 
 本文主要利用视频压缩的MPEG4格式中的I-frames、Motion Vector和Residual三部分来做视频动作识别。在精度上优于主流算法，主要原因是避免了视频转为连续RGB图像后生成时序上大量冗余的信息，但仍旧能够在MP4中捕获对训练有用特征；在效率上也显著优于主流算法，原因是直接输入MP4格式省去了大量预处理时间，比如视频转换时间，提取光流时间等等。由于单独的输入类似于光流的P帧图片只记录了两帧图片间的差异，信噪比很低难以建模，因此**考虑长程差异用积累动作向量和残差**，会显示出更加清晰的模式。
 

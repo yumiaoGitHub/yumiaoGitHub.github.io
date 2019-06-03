@@ -1,12 +1,11 @@
-layout:     post
-title:     Candidates v.s. Noises Estimation for Large Multi-Class Classification Problem
-subtitle:   多分类问题
-date:       2018-07-13
-author:     Mily
-header-img: img/post-bg-cook.jpg
-catalog: true
-tags:
-
+    layout:     post
+    title:     Candidates v.s. Noises Estimation for Large Multi-Class Classification Problem
+    subtitle:   多分类问题
+    date:       2018-07-13
+    author:     Mily
+    header-img: img/post-bg-cook.jpg
+    catalog: true
+    tags:
     - NLP
 
 ## **摘要**

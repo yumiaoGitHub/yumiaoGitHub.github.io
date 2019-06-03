@@ -1,12 +1,11 @@
-layout:     post
-title:      Attention Clusters Purely Attention Based Local Feature Integration for Video Classification
-subtitle:   人体动作识别论文阅读
-date:       2018-06-01
-author:     Mily
-header-img: img/post-bg-cook.jpg
-catalog: true
-tags:
-
+    layout:     post
+    title:      Attention Clusters Purely Attention Based Local Feature Integration for Video Classification
+    subtitle:   人体动作识别论文阅读
+    date:       2018-06-01
+    author:     Mily
+    header-img: img/post-bg-cook.jpg
+    catalog: true
+    tags:
     - action recognition
 
 ## **摘要**

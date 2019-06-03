@@ -53,7 +53,7 @@ human-centric 分支的第二个任务就是基于人的 appearance 预测相关
 
 为了提高模型的表达能力，进一步利用了 相关物体的表观特征（object appearance）
 
-![clipboard(3)](../img/2018-02-02-Detecting-and-Recognizing-Human-Object-Interactions/clipboard.png)
+![clipboard(3)](/../img/2018-02-02-Detecting-and-Recognizing-Human-Object-Interactions/clipboard.png)
 
 **多任务学习&层次预测**
 

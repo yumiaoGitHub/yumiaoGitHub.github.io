@@ -23,9 +23,9 @@ tags:
 
 ![clipboard(4)](/../img/2018-07-20-A-Neural-Representation-of-Sketch-Drawings/clipboard(4).png)
 
-![clipboard](../img/2018-07-20-A-Neural-Representation-of-Sketch-Drawings/clipboard.png)
+![clipboard](/../img/2018-07-20-A-Neural-Representation-of-Sketch-Drawings/clipboard.png)
 
-![clipboard(6)](../img/2018-07-20-A-Neural-Representation-of-Sketch-Drawings/clipboard(6).png)
+![clipboard(6)](/../img/2018-07-20-A-Neural-Representation-of-Sketch-Drawings/clipboard(6).png)
 
 ### **无条件生成Unconditional Generation**
 
@@ -71,3 +71,4 @@ tags:
 ### 参考
 
 <https://developers.googleblog.cn/2017/04/blog-post.html>
+
