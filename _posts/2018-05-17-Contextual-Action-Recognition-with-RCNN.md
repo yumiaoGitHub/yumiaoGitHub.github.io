@@ -24,15 +24,15 @@ tags:
 
 红色的是选出的首要区域。绿色的是多个次要区域，可以看到次要区域选出了很多个，但是最后和首要区域的score相加时用了一个max，就只选取了一个次要区域。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(6)](/../img/2018-05-17-Contextual-Action-Recognition-with-RCNN/clipboard(6).png)
 
  I代表一张image图片，r代表I中的一个region区域，某个动作类别α， 
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-05-17-Contextual-Action-Recognition-with-RCNN/clipboard(4).png)
 
 得到某个动作α的分数以后，就可以用类似softmax的函数来计算概率：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2018-05-17-Contextual-Action-Recognition-with-RCNN/clipboard(1).png)
 
 ## **实验分析**
 
@@ -40,30 +40,24 @@ tags:
 
  **1.PASCAL VOC Action**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2018-05-17-Contextual-Action-Recognition-with-RCNN/clipboard.png)
 
 **2. MPII Human Pose Dataset**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2018-05-17-Contextual-Action-Recognition-with-RCNN/clipboard(3).png)
 
 **3. Attribute Classification**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(5)](/../img/2018-05-17-Contextual-Action-Recognition-with-RCNN/clipboard(5).png)
 
 ## **总结拓展**
 
 - 本文提出了一种简单但有效的方法——R*CNN：**主要区域（人体）**、**次要区域（物体场景）**的预测结果加权平均。综合利用人体动作和物体场景信息进行人体动作识别，参考了上下文线索（context information clue）
 - 由于次要区域经过Max操作与主要区域加权平均，每次预测只有一个场景或者物体信息得到参考，不具有全局性，存在上下文**线索信息缺失**。
-- 由此看出物体场景的类别预测对于最终的行为识别有着重要的影响。于是提出在HOC（利用Mask R-CNN分割得到结果）上加入类别信息。
-- 每一种类别用特定一种颜色来表示，全局信息汇总在一张图片上，再投入TSN模型进行特征提取得到最终结果
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+  
 
 
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
 
 
 

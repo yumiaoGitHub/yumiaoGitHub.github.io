@@ -1,4 +1,3 @@
----
 layout:     post
 title:      End-to-End Learning of Motion Representation for Video Understanding
 subtitle:   人体动作识别论文阅读-TVNet
@@ -7,8 +6,8 @@ author:     Mily
 header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
+
     - action recognition
----
 
 ## **摘要**
 
@@ -20,23 +19,23 @@ tags:
 
 当前，TV-L1方法通过优化方法来求解光流，是最常用的方法之一。作者发现，把TV-L1的每一步迭代通过特定设计翻译成神经网络的某一层，就能得到TVNet的初始版本。因此，TVNet能无需训练就能被直接使用。更重要的是，TVNet能被嫁接到任何分类神经网络来构建从数据端到任务端的统一结构，从而避免了传统多阶段方法中需要预计算、预存储光流的需要。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(8)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(8).png)
 
 ### **TVL1 VS TVNet**
 
 最基本光流公式：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(12)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(12).png)
 
 Total Variation+L1 norm
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(17)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(17).png)
 
 分别代表**灰度一致性**和**光滑度条件**条件
 
 线性化**Linearization：**利用[**一阶泰勒展开**](http://en.wikipedia.org/wiki/Taylor_series)来建立图像gradient和displacement之间的关系
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(4).png)
 
 建立在两个**假设**基础上：
 
@@ -44,55 +43,45 @@ Total Variation+L1 norm
 
 **第二**，位移不是很大——**Coarse-To-Fine**图像降分辨率建立金字塔
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(9)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(9).png)
 
 为了遵循凸逼近，引入额外变量V~U
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(21)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(21).png)
 
 （1）如果v固定
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(13)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(13).png)
 
+![clipboard(7)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(7).png)
 
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(1).png)
 
 （2）如果u固定
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(6)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(6).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(10)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(10).png)
 
 **如此往复迭代得到U和P**
 
 TVL1算法流程如下：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(18)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(18).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(14)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(14).png)
 
 - Gradient-1.（亮度梯度）—— Cov_1:  I1\*Wc [0.5, 0,0.5]
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(19)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(19).png)
 
 - Gradient-2.（光流梯度）—— Cov_2: Ud\*Wf [-1,1]
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(15)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(15).png)
 
 - Divergence（散 度）—— Cov_3: Pd1\*W + Pd2*WT[-1,1]
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(20)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(20).png)
 
 ## **实验分析——Going beyond TVL1**
 
@@ -100,11 +89,13 @@ TVNet的某些参数（初始光流向量**U****0**和卷积滤波器的值**W�
 
 - **光流准确率分析——EPE误差**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(16)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(16).png)
 
 - **光流速度分析——FPS**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(3).png)
+
+![clipboard(11)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(11).png)
 
 由于TVNet是在TensorFlow上实现，可以通过增大batch size 方法并行训练。如果将batch = 10，FPS=60
 
@@ -112,19 +103,13 @@ TVNet的某些参数（初始光流向量**U****0**和卷积滤波器的值**W�
 
 在两个动作识别的标准数据集HMDB51和UCF101上，该方法取得了比同类方法更好的分类结果。与TV-L1相比，TVNet在节省光流提取时间和存储空间的基础上，明显提高了识别精度。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(2).png)
 
+![clipboard(16)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(16).png)
 
+![clipboard](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard.png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(5)](/../img/2018-04-20-End-to-End-Learning-of-Motion-Representation-for-Video-Understanding/clipboard(5).png)
 
 ## **总结思考**
 
