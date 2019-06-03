@@ -1,4 +1,3 @@
----
 layout:     post
 title:     A Closer Look at Spatiotemporal Convolutions for Action Recognition
 subtitle:   人体动作识别论文阅读
@@ -7,8 +6,8 @@ author:     Mily
 header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
+
     - action recognition
----
 
 ## **摘要**
 
@@ -16,7 +15,7 @@ tags:
 
 ## **整体结构**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2018-06-29-A-Closer-Look-at-Spatiotemporal-Convolutions-for-Action-Recognition/clipboard(1).png)
 
 针对于视频理解任务，时序信息是非常重要的线索。然而传统的2D卷积无法充分挖掘出时序信息，3D卷积由于数据量过大又难以推广。I3D的提出在各个数据集上都达到了最高成绩，因此很多学者开始探讨如何有效3D卷积的强大功效。本论文以ResNet网络为骨架，列举对比了5中结构：
 
@@ -48,13 +47,13 @@ C3D第一次提出，I3D推至巅峰
 
 2.使得网络优化更容易，网络更**易于训练**。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2018-06-29-A-Closer-Look-at-Spatiotemporal-Convolutions-for-Action-Recognition/clipboard(3).png)
 
 ## **实验分析：**
 
 ### **1.不同网络结构性能分析**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2018-06-29-A-Closer-Look-at-Spatiotemporal-Convolutions-for-Action-Recognition/clipboard.png)
 
 - 纯2D网络比含3D的网络（包括R3D, MCx,rMCx, R(2+1)D）性能要差
 - MCx性能优于rMCr，因此说明在网络底层的3D卷积层更能提取时间信息，而后面用2D卷积能减少计算量，更为合理。
@@ -62,17 +61,17 @@ C3D第一次提出，I3D推至巅峰
 
 ### **2.不同长度Clip选取分析**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-06-29-A-Closer-Look-at-Spatiotemporal-Convolutions-for-Action-Recognition/clipboard(2).png)
 
 以TSN中光流为例，一个视频分为3个clip,每个clip取L=10张连续图片。作者采用了8，16，24，32，40和48帧的clip进行实验，对clip-level的结果和video-level的结果进行分析，得到的准确率如Figure 5所示。可以看到，clip-level的准确率随着clip的长度增长在持续上升，而video-level的准确率则在**24帧**的时候达到最高，后面反倒有所下降，作者分析随着clip长度的增加，不同clip之间的相关性增加（甚至可能会产生重叠），所以video-level的准确率增益越来越小。
 
 Comparison with the state-of-the-art on Kinetics
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-06-29-A-Closer-Look-at-Spatiotemporal-Convolutions-for-Action-Recognition/clipboard(4).png)
 
 ### Comparison with the state-of-the-art on UCF101 HMDB51
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2018-06-29-A-Closer-Look-at-Spatiotemporal-Convolutions-for-Action-Recognition/clipboard(5).png)
 
 单独RGB和Flow的准确率都比I3D高，但是双流混合起来效果不如I3D，可能互补性不够
 

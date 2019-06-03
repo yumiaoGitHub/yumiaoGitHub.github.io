@@ -1,4 +1,3 @@
----
 layout:     post
 title:     Candidates v.s. Noises Estimation for Large Multi-Class Classification Problem
 subtitle:   多分类问题
@@ -7,8 +6,8 @@ author:     Mily
 header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
+
     - NLP
----
 
 ## **摘要**
 
@@ -24,17 +23,13 @@ tags:
 
 **整体方法：**
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2018-07-13-Candidates-v.s.-Noises-Estimation-for-Large-Multi-Class-Classification-Problem/clipboard(5).png)
 
 **束树算法：**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2018-07-13-Candidates-v.s.-Noises-Estimation-for-Large-Multi-Class-Classification-Problem/clipboard(3).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-07-13-Candidates-v.s.-Noises-Estimation-for-Large-Multi-Class-Classification-Problem/clipboard(2).png)
 
 ## **实验分析**
 
@@ -42,23 +37,17 @@ tags:
 
 一般情况下给定文本h中目标单词w的概率分布为
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2018-07-13-Candidates-v.s.-Noises-Estimation-for-Large-Multi-Class-Classification-Problem/clipboard.png)
 
 而采用本文CANE方法，则由w单词本身和其候选集、噪声集共同表示
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-07-13-Candidates-v.s.-Noises-Estimation-for-Large-Multi-Class-Classification-Problem/clipboard(4).png)
 
 实验数据集选择如下：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2018-07-13-Candidates-v.s.-Noises-Estimation-for-Large-Multi-Class-Classification-Problem/clipboard(1).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(6)](/../img/2018-07-13-Candidates-v.s.-Noises-Estimation-for-Large-Multi-Class-Classification-Problem/clipboard(6).png)
 
 **可以看出，随着分类类比K的上升，CANE表现超过了softmax并且训练效率高**
 
@@ -69,3 +58,4 @@ tags:
 本文提出的CANE方法能够快速学习大型多分类问题，并可应用于自然语言建模当中。相比于传统的softmax分析，本方法拥有更好的计算效率。
 
 本篇论文多数学推导，有些细节不是很理解，但是这些思路都是我们可以研究的方向。智能机器人是多媒体垂直领域发展的代表，会涉及到图像理解并用NLP表达的。
+

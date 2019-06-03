@@ -1,4 +1,3 @@
----
 layout: post
 
 title: Rank pooling论文进阶史
@@ -9,8 +8,8 @@ author: Mily
 header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
+
 - action recogniton
----
 
 ## **一 . 起**
 
@@ -18,13 +17,11 @@ tags:
 
 Basura Fernando, Efstratios Gavves, Jose Oramas, Amir Ghodrati and Tinne Tuytelaars Conference on Computer Vision and Pattern Recognition **CVPR 2015**
 
-![img](https://note.youdao.com/yws/public/resource/39a3e62c72624fccf01a9e094a40ac20/xmlnote/1F9888FFF1924D4E867F628D2F343113/20392)本篇论文提出了一种新型的方法，用来描绘视频人体动作识别的时序信息。
+![darwin](/../img/2018-12-03-Rank-pooling论文进阶史/darwin.png)本篇论文提出了一种新型的方法，用来描绘视频人体动作识别的时序信息。
 
 假设有一种函数，能够根据视频帧的表观信息进行时序排序，根据不同的视频学习训练这样一个排序机器，从而得到这样的函数。而这个排序机器的参数就作为新的视频表达。
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2018-12-03-Rank-pooling论文进阶史/clipboard.png)
 
 动态图计算过程： 
 
@@ -42,7 +39,7 @@ Basura Fernando, Efstratios Gavves, Jose Oramas, Amir Ghodrati and Tinne Tuytela
 
 用ranking function的参数编码视频的帧序列。它使用一个排序函数（ranking function）主要基于这样的假设：帧的appearance的变化与时间相关，如果帧vt+1在vt后面，则定义
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![9-2047326598](/../img/2018-12-03-Rank-pooling论文进阶史/9-2047326598.png)
 
 此外，假设同一动作的视频帧序列，学习到的排序函数的参数，应该的大致一致的。
 
@@ -52,25 +49,25 @@ Rank pooling 的方法是使用一个RankSVM的学习排序算法计算的。整
 
 （2）如上定义了序列的先后顺序
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![4-2024102310](/../img/2018-12-03-Rank-pooling论文进阶史/4-2024102310.png)
 
 定义正例样本为
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![2-1995739517](/../img/2018-12-03-Rank-pooling论文进阶史/2-1995739517.png)
 
 其中时间ti在tj之后，反例样本为它的相反数。
 
 （3）可以通过SVM的学习算法，学习如下的凸优化问题 
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![68-150556891](/../img/2018-12-03-Rank-pooling论文进阶史/68-150556891.png)
 
 （4）如果学习到的参数为u，则一个vi的score定义为
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![71-466214553](/../img/2018-12-03-Rank-pooling论文进阶史/71-466214553.png)
 
 并且有
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![1-1005178863](/../img/2018-12-03-Rank-pooling论文进阶史/1-1005178863.png)
 
 
 
@@ -82,7 +79,7 @@ Hakan Bilen, Basura Fernando, Efstratios Gavves, Andrea Vedaldi, Stephen Gould
 
 Conference on Computer Vision and Pattern Recognition CVPR 2016
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-12-03-Rank-pooling论文进阶史/clipboard(2).png)
 
 在dynamic论文中发现，这样的参数向量u，事实上与image是同等大小的，也就是说，它本身是一张图片，那么就可以把图片输入到CNN中进行计算了。如下图可以看到一些参数向量u pooling的样例
 
@@ -104,7 +101,7 @@ Conference on Computer Vision and Pattern Recognition CVPR 2016
 
 4.泛化性强。可应用在不同序列不同模态（动态RGB，动态Flow）
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2018-12-03-Rank-pooling论文进阶史/clipboard(1).png)
 
 ## **三 . 转**
 
@@ -112,7 +109,7 @@ Conference on Computer Vision and Pattern Recognition CVPR 2016
 
 Basura Fernando, Stephen Gould International Conference on Machine Learning ICML 2016
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![cnnnet](/../img/2018-12-03-Rank-pooling论文进阶史/cnnnet.png)
 
 CNN+temporal pooling layer
 
@@ -126,7 +123,7 @@ Basura Fernando, Peter Anderson, Marcus Hutter, Stephen Gould
 
 Conference on Computer Vision and Pattern Recognition **CVPR 2016**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![hrp](/../img/2018-12-03-Rank-pooling论文进阶史/hrp.jpeg)
 
 **分层排序池化：非线性特征函数+rank pooling**
 

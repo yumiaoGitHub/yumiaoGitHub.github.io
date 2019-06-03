@@ -12,8 +12,6 @@ tags:
 - action recogniton
 ---
 
-![img](https://note.youdao.com/yws/public/resource/72c6ad0885318d952d13ec24d5d12571/xmlnote/5BAE48886F2946F69A110DCBC48D094E/20178)
-
 ## **摘要：**
 
 本文发现人体动作识别准确率低的原因之一在于：针对于不同的动作类型使用相同的模型。对于小而类似的数据集，手工提取的特征更好，但是大而多样的数据集用训练出来的特征泛化性更好。如何将针对性和泛化性性有效的结合起来？
@@ -30,7 +28,7 @@ tags:
 
 将一个大模型拆分为几个小模型，每个子模型只负责某一组动作（group-action）
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2018-11-23-Improving-Human-Action-Recognition-through-Hierarchical-Neural-Network-Classification/clipboard(5).png)
 
 分为两个步骤：
 
@@ -38,11 +36,9 @@ tags:
 
 2.第二阶段：进一步处理分析视频决定特定的动作类别（action）
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-11-23-Improving-Human-Action-Recognition-through-Hierarchical-Neural-Network-Classification/clipboard(4).png)每一个C分类器的网络结构：
 
-每一个C分类器的网络结构：
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2018-11-23-Improving-Human-Action-Recognition-through-Hierarchical-Neural-Network-Classification/clipboard(3).png)
 
 采用3D卷积和3D池化提取特征，只用了8层卷积。模型简单快速。每一个分类器的参数都不相同，因此可以更好的适应不同类别的动作。第一层softmax输出为9大群体（P=group）第二层的分类器为其包含的类别个数。
 
@@ -50,15 +46,13 @@ tags:
 
 ### **1.准确率提升**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2018-11-23-Improving-Human-Action-Recognition-through-Hierarchical-Neural-Network-Classification/clipboard.png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-11-23-Improving-Human-Action-Recognition-through-Hierarchical-Neural-Network-Classification/clipboard(2).png)
 
 ### **2.速度快易训练**
 
-### 分组的方法极大的简化了网络的训练，网络结构简单，层数少（8+8）。而且由于分组之间的训练相互独立，不会相互影响，数据量小。
+分组的方法极大的简化了网络的训练，网络结构简单，层数少（8+8）。而且由于分组之间的训练相互独立，不会相互影响，数据量小。
 
 ### **3.可扩展性强**
 

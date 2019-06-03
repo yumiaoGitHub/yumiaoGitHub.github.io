@@ -9,6 +9,7 @@ author: Mily
 header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
+
 - action recogniton
 ---
 
@@ -16,12 +17,10 @@ tags:
 
 人体动作通常与场景中的物体有着复杂联系。然而现存的方法进行细粒度的视频理解，或者视觉关系检测通常依赖单一物体或者成对物体间的联系。而且对于视频，上百帧的计算占用大量空间和时间。因此，本文提出一种有效进行细粒度视频理解的方法，实现在任意子分组的物体间实现**高阶**交互理解。在动作识别领域（Kinetics）同样有效并且比传统的成对关系建模计算快3倍。
 
-![img](https://note.youdao.com/yws/public/resource/1f6e9c35143809586c20dcdf6d617692/xmlnote/A546C01F9F3D4CC08B83174383E52347/19155)
+![clipboard(9)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(9).png)
 
 - **组内**交互理解：用相同颜色r, g, b的ROI框标注，表明对象间存在联系
 - **组间**交互理解：参与高阶交互对象的推理（不同颜色的ROI联系）
-
-
 
 ## **模型：**
 
@@ -35,11 +34,11 @@ tags:
 
 **每个物体注意力权重是所有物体组合计算得到，因此能考虑物体间内在关联**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(3).png)
 
 更快、更节省空间，并且更容易优化
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(5).png)
 
 ### **2.细粒度高阶物体交互**
 
@@ -47,7 +46,7 @@ tags:
 
 物体检测基础结构：Deformable R-FCN (pre-trained on MS-COCO) with ResNet-101。提取TOP30物体
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(10)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(10).png)
 
 **将物体通过一个****区域框****在图像中表示。**没有直接将物体类别信息输入由于存在**跨域问题**。而且可能有物体没有被检测出来；跨时间将物体建立联系计算量很大，因此将可变长的物体组存储在跨时间的高维空间中。
 
@@ -59,47 +58,35 @@ tags:
 
 **HOI：**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(2).png)
 
 **Recurrent HOI:**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(1).png)
 
+![clipboard(11)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(11).png)
 
+![clipboard(12)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(12).png)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(6)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(6).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard.png)
 
 最后将粗粒度图像特征和细粒度高阶物体特征送入最后一层全连接层：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(7)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(7).png)
 
+![clipboard(4)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(4).png)
 
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
-
-**实验分析：**
+### **实验分析：**
 
 **1.Does object interaction help?**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(13)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(13).png)
 
 **2.Does attentive selection help?**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(8)](/../img/2018-11-08-Attend-and-Interact-Higher-Order-Object-Interactions-for-Video-Understanding/clipboard(8).png)
 
 ## **总结思考：**
 

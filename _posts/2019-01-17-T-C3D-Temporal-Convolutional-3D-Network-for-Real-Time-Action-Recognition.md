@@ -13,7 +13,7 @@ tags:
 - action recogniton
 ---
 
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/B974BA781B634B3CBB43D53BD98DD623/21838)
+![clipboard(8)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(8).png)
 
 ## **摘要：**
 
@@ -37,21 +37,15 @@ T-C3D和以往工作不同的是计算视频层级的损失来更新训练，而
 
 采用方法相当于光流图片（每个视频片段clip提取8帧图片），采用3D卷积提取特征。省去了额外提前光流的时间，故而提升了速度。并且实现了端到端的部署。
 
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/BC86371294454C2F87E613BA79918209/21900)
+![clipboard(9)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(9).png)
 
+![clipboard(2)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(2).png)
 
+![clipboard](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard.png)
 
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/31FD760737314B5BBBE735EF98507E5C/21917)
+![clipboard(11)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(11).png)
 
-
-
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/192D4383E3D1440AB32157B269AE113F/21871)
-
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/FF4776DFB5DC4690807DC98D9BB4E99F/21896)
-
-
-
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/86454A111DDC4AC3BC78165E79EF7828/21898)
+![clipboard(5)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(5).png)
 
 ##  **实验：**
 
@@ -62,19 +56,19 @@ T-C3D和以往工作不同的是计算视频层级的损失来更新训练，而
 - 每段随机采样（不连续，平均间隔）
 - 每段选择连续的几帧
 
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/514993C703E6448992F679F577DC230A/21924)
+![clipboard(3)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(3).png)
 
 实验表明**连续采样RGB**更能匹和3D-CNN的特性，取得更好的效果（因为预训练模型的关系）既能得到RGB表观信息，也能捕捉动态信息
 
-###**2.视频片段数量研究Evaluation on snippets number**
+**2.视频片段数量研究Evaluation on snippets number**
 
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/9D386FAEE9BE464EB6E958463E4665E7/21934)
+![clipboard(6)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(6).png)
 
 实验表明当视频片段数增加时准确率增加很多，但当数量从4增长后开始饱和，因此为了考虑速度，采用**clip=3**的方式。
 
 ### **3.视频片段融合方式研究Evaluation on aggregation functions.**
 
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/9EFF3C2D847C41C4972EE6835A30E281/21936)
+![clipboard(7)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(7).png)
 
 实验发现在UCF101这样比较纯净的数据集中，简单的平均融合函数就能得到最好的融合方式，因此后文实验皆采用**平均融合**预测得分。
 
@@ -82,10 +76,10 @@ T-C3D和以往工作不同的是计算视频层级的损失来更新训练，而
 
 预训练的数据集越大越好？实验发现太大的数据集噪声多反而有干扰，**kinetics**数据集预训练 的结果最好。
 
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/804392A6C88245BD8ADEB08D45403F85/21941)
+![clipboard(4)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(4).png)
 
 ### **5.速度精度的研究Evaluation on the balance between speed and accuracy**
 
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/E1315F7C614A4BACB8CF45B6EC633B71/21944)
+![clipboard(10)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(10).png)
 
-![img](https://note.youdao.com/yws/public/resource/f39a05cc28af7cc0ef9c7c1b2c2b91d6/xmlnote/24435B35CA304441AA6FF8CB79E21611/21951)
+![clipboard(1)](/../img/2019-01-17-T-C3D-Temporal-Convolutional-3D-Network-for-Real-Time-Action-Recognition/clipboard(1).png)

@@ -12,15 +12,13 @@ tags:
 - action recogniton
 ---
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/23C5605AF3224A3AAF167B043E0E3B43/22119)
-
 ## **摘要：**
 
 针对在线视频理解问题，2D CNN计算简单但是不能捕捉长程时序关系，3D CNN能取得较好的效果，但是计算量大难以部署。本文提出了一种通用且有效的方法：时间位移模块TSM，以2D的计算复杂度达到3D的准确率。
 
 TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行交换。更关键是，在2D CNN 中嵌入TSM模块取得时序信息，只需要简单的位移操作，这不会带来任何的计算量。实验结果表明比ECO参数少3倍，模型小了3倍。
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/B0362B1AC2EA4A399E9CB4C309243B56/22113)
+![clipboard(9)](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard(9).png)
 
 ## **模型：**
 
@@ -30,17 +28,17 @@ TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行�
 
 启发：一般的卷积操作，可以分解成 位移shift + 权值叠加 multiply-accumulate 两个过程。比如说对一个1D vector X 进行 kernel size=3 的卷积操作 Y = Conv(W; X) 可以写成：
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/AE18C1AEAC1341D1A0B8A2D41F10450D/22144)
+![a02ea429_hd](/../img/2019-03-15-Temporal-Shift-Module（TSM）/a02ea429_hd.jpeg)
 
 故分解后的两个操作分别为：
 
 1.位移（基本不消耗计算资源，常规地址偏移指针操作）
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/45E8C5D6BCE34D3283238321A587B66F/20735)
+![bc8d8014_hd](/../img/2019-03-15-Temporal-Shift-Module（TSM）/bc8d8014_hd.jpeg)
 
 2.权值叠加
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/4354ECF8246B49648B523E3C6B312FE4/22145)
+![61613238_hd](/../img/2019-03-15-Temporal-Shift-Module（TSM）/61613238_hd.jpeg)
 
 设计TSM模块时候，尽可能多使用位移操作（几乎0计算量），把权值叠加操作放到2D CNN本身的卷积里去做，这样就可在不加任何参数计算量基础上，实现更多功能。
 
@@ -48,11 +46,7 @@ TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行�
 
 时空建模的视频理解任务里，如何利用位移操作呢？
 
-
-
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/EBD3E88487A6419EB271838CB125578A/22112)
-
-
+![clipboard(10)](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard(10).png)
 
 上图中最左边的二维矩阵是 Ti; 
 
@@ -62,7 +56,7 @@ TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行�
 
 ## **整体框架：**
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/0552879A175643FC912234ED0931980E/22115)
+![clipboard](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard.png)
 
 基础网络是ResNet-50，且在每个 residual unit 后都会加入 残差TSM 模块，当用2D 3x3的卷积时，每次插入TSM模块后的时间感受野都会扩大2，故整个框架最后的时间感受野会很大，足以进行复杂的时空建模。
 
@@ -72,21 +66,17 @@ TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行�
 
 **1.准确率比较（与TSN比较）**
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/8C62355998BC47BE971BDCB08CDE188A/22114)
+![clipboard(7)](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard(7).png)
 
 **2.参数量效率比较（Something-Something dataset较为复杂）**
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/81CB538EDFC344D989853AD30F76AAB2/22111)
+![clipboard(6)](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard(6).png)
 
+![clipboard(8)](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard(8).png)
 
+![clipboard(2)](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard(2).png)
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/93525F418C7E45B6973FBCB2CDBDEB38/22117)
-
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/33BBA3F4058E4360BB5DBDE5E8FCDA37/22116)
-
-
-
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/68007772631A4EA2857903F957D463EA/22120)
+![clipboard(3)](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard(3).png)
 
 ## **总结思考：**
 
@@ -100,11 +90,11 @@ TSM中心思想：时间维度通道的移动，使得相邻帧间信息进行�
 
 对于**卷积**操作：
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/73F3F35486124CF399D80843CD87E3F8/22118)
+![clipboard(5)](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard(5).png)
 
-对于**全连接**操作：
+对于**全连接**操作：![clipboard(4)](/../img/2019-03-15-Temporal-Shift-Module（TSM）/clipboard(4).png)
 
-![img](https://note.youdao.com/yws/public/resource/7f1729ff4842a66b2246b61b1dc3d14b/xmlnote/706456077EE04AD18D992C13E368F4D4/22121)
+
 
 ## 参考
 

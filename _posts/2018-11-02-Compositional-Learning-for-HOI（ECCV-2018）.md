@@ -12,7 +12,7 @@ tags:
 - action recogniton
 ---
 
-![img](https://note.youdao.com/yws/public/resource/dc2c54c3a5e7d0b062386eb984bce8c8/xmlnote/9495CE43EAE84FAC8FDAD4D17446DBBF/18997)
+![clipboard(3)](/../img/2018-11-02-Compositional-Learning-for-HOI（ECCV-2018）/clipboard(3).png)
 
 ## **摘要**
 
@@ -22,11 +22,11 @@ tags:
 
 action=motion(verb)+objects(noun)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-11-02-Compositional-Learning-for-HOI（ECCV-2018）/clipboard(4).png)
 
 ## **模型：**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2018-11-02-Compositional-Learning-for-HOI（ECCV-2018）/clipboard.png)
 
 (a)编码SVO（主谓宾）的图，每个动词和名词，以词向量作为节点的特征（方形）与动名词相连接的原形节点表示action node动作节点。在动词和动词之间，名词与名词之间也可以建立联系（WordNet）
 
@@ -36,7 +36,7 @@ action=motion(verb)+objects(noun)
 
 得分函数为：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(6)](/../img/2018-11-02-Compositional-Learning-for-HOI（ECCV-2018）/clipboard(6).png)
 
 x：图像视觉特征； yv：动作标签；yn：名词标签；K：图结构
 
@@ -49,14 +49,12 @@ x：图像视觉特征； yv：动作标签；yn：名词标签；K：图结构
 
 ### **2.图卷积应用于组合学习**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-11-02-Compositional-Learning-for-HOI（ECCV-2018）/clipboard(2).png)
 
 通过K层GCN层，模型构建了非线性转换是的节点在构建动作表示时能考虑K近邻
 
 ### **3.图应用于零样本识别**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2018-11-02-Compositional-Learning-for-HOI（ECCV-2018）/clipboard(1).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2018-11-02-Compositional-Learning-for-HOI（ECCV-2018）/clipboard(5).png)

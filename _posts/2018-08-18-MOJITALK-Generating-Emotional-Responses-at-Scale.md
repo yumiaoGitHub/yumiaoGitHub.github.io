@@ -10,8 +10,6 @@ tags:
     - 机器学习
 ---
 
-![img](https://note.youdao.com/yws/public/resource/ad01b691ccf2fd643c7b906c8e30a14f/xmlnote/CBD4978AAAE348E681EF52C94932FE01/15255)
-
 ## **摘要**
 
 本文是清华大学和 UCSB 发表于 ACL 2018 的工作，**论文旨在教会机器生成有情绪的回答**，比如当用户伤心的时候，机器回答一定不能很开心。**这项工作的难点在于缺少大规模标注好的情感训练集，以及如何控制生成回答的情感**。现有的情感数据集对深度模型都太小，并且只有有限的几个分类（生气、开心，或者正面、负面）。 
@@ -22,7 +20,7 @@ tags:
 
 2. 在生成回答时，根据给定的 emoji 来生成不同情感的回答
 
-![img](https://note.youdao.com/yws/public/resource/ad01b691ccf2fd643c7b906c8e30a14f/xmlnote/35FB7A10683343F7B323C96A9C7FBC23/15261)
+![clipboard](/../img/2018-08-18-MOJITALK-Generating-Emotional-Responses-at-Scale/clipboard.png)
 
 ## **模型**
 
@@ -34,7 +32,7 @@ tags:
 
 **2.条件变分自动编码器Conditional Variational Autoencoder(CVAE)**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2018-08-18-MOJITALK-Generating-Emotional-Responses-at-Scale/clipboard(1).png)
 
 **3.加强版CAVE**
 
@@ -42,19 +40,17 @@ tags:
 
 当emoji在所有表情包中排名越靠前，我们假设这个模型在表达情绪方面越成功。因此对于应答不需要过多的调整。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2018-08-18-MOJITALK-Generating-Emotional-Responses-at-Scale/clipboard(3).png)
 
 - **同时学习情绪的精确度和表达的合适度**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2018-08-18-MOJITALK-Generating-Emotional-Responses-at-Scale/clipboard(5).png)
 
 ## **实验分析**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-08-18-MOJITALK-Generating-Emotional-Responses-at-Scale/clipboard(4).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-08-18-MOJITALK-Generating-Emotional-Responses-at-Scale/clipboard(2).png)
 
 ## **总结思考**
 

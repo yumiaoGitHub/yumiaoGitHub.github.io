@@ -10,8 +10,6 @@ tags:
     - action detection
 ---
 
-![img](https://note.youdao.com/yws/public/resource/f1dfb6bffcf5ebe21c306d62d93bd591/xmlnote/74DC96BAD9B64458B17B60179ADFC6EB/15924)
-
 ## **摘要**
 
 本文是2018CVPR论文，提出了一个**3D胶囊网络(VideoCapsuleNet)**：一种用于**动作检测**的统一网络，可以联合执行像素级别的动作**分割**以及动作**分类**。
@@ -32,11 +30,9 @@ tags:
 
 对于3D卷积胶囊，在L+1层的感受野维度是：(KT ;KX;KY )，Mc和ac分别代表拥有一个位置矩阵和激活的胶囊。
 
-![img](https://note.youdao.com/yws/public/resource/f1dfb6bffcf5ebe21c306d62d93bd591/xmlnote/AC51330277494ED8B695DDB82A29E583/15945)
+![clipboard(6)](/../img/2018-08-26-VideoCapsuleNet-A-Simplified-Network-for-Action-Detection/clipboard(6).png)
 
-
-
-![img](https://note.youdao.com/yws/public/resource/f1dfb6bffcf5ebe21c306d62d93bd591/xmlnote/7D7A4243C9B1477DBA2418123907323B/15985)
+![clipboard(5)](/../img/2018-08-26-VideoCapsuleNet-A-Simplified-Network-for-Action-Detection/clipboard(5).png)
 
 ### **定位网络**
 
@@ -44,33 +40,27 @@ tags:
 
 为了保证位置信息参与到最终定位，在卷积胶囊层使用了跳跃连接。
 
-![img](https://note.youdao.com/yws/public/resource/f1dfb6bffcf5ebe21c306d62d93bd591/xmlnote/0991A76819044C499E94EEFE89BE0978/15953)
+![clipboard](/../img/2018-08-26-VideoCapsuleNet-A-Simplified-Network-for-Action-Detection/clipboard.png)
 
 ### **目标函数**
 
-![img](https://note.youdao.com/yws/public/resource/f1dfb6bffcf5ebe21c306d62d93bd591/xmlnote/530230B744D441D38656FB3AF5619A4D/15997)
+![clipboard(2)](/../img/2018-08-26-VideoCapsuleNet-A-Simplified-Network-for-Action-Detection/clipboard(2).png)
 
+![clipboard(1)](/../img/2018-08-26-VideoCapsuleNet-A-Simplified-Network-for-Action-Detection/clipboard(1).png)
 
-
-![img](https://note.youdao.com/yws/public/resource/f1dfb6bffcf5ebe21c306d62d93bd591/xmlnote/4579A7FEC6A34487B977C10D334FC217/15999)
-
-
-
-![img](https://note.youdao.com/yws/public/resource/f1dfb6bffcf5ebe21c306d62d93bd591/xmlnote/AF958E6B11F44FE88785E95760DE4864/16001)
+![clipboard(7)](/../img/2018-08-26-VideoCapsuleNet-A-Simplified-Network-for-Action-Detection/clipboard(7).png)
 
 ## **实验分析**
 
 本论文实现代码框架采用Tensorflow，预训练模型是C3D，基于Sports-1M，UCF101等数据集验证。
 
-![img](https://note.youdao.com/yws/public/resource/f1dfb6bffcf5ebe21c306d62d93bd591/xmlnote/622400C1F7944085A61AB818E5303CC8/16032)
+![clipboard(3)](/../img/2018-08-26-VideoCapsuleNet-A-Simplified-Network-for-Action-Detection/clipboard(3).png)
 
 **类胶囊可视化：到底学习到了什么？**
 
-![img](https://note.youdao.com/yws/public/resource/f1dfb6bffcf5ebe21c306d62d93bd591/xmlnote/DCBC6E264D554500BA2C7BEE1927C99E/16042)
+![clipboard(8)](/../img/2018-08-26-VideoCapsuleNet-A-Simplified-Network-for-Action-Detection/clipboard(8).png)
 
-以上可视化图片表明：类胶囊包含了特定动作信息并且与位置相关
-
-
+以上可视化图片表明：类胶囊包含了特定动作信息并且与位置相关。
 
 ## **总结思考**
 

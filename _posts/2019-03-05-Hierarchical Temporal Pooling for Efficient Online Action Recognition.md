@@ -13,9 +13,7 @@ tags:
 - action recogniton
 ---
 
-![img](https://note.youdao.com/yws/public/resource/42667a1e2b11dee4c7eac007437e831b/xmlnote/C2453570BE2142F0ABD5F10074BCF77F/21654)
-
-
+![clipboard(6)](/../img/2019-03-05-Hierarchical Temporal Pooling for Efficient Online Action Recognition/clipboard(6).png)
 
 ## **摘要：**
 
@@ -29,15 +27,11 @@ ECO（高效视频理解）的思想是：**2D卷积**提取空间表观特征�
 
 参照TSN采样策略，将视频分为等长N段，再随机从某一段中抽取一帧图片，构成N帧图片输入2D模块（蓝色方块）生成空间表观特征，接着输入到3DHTP模块（绿色方块）来连续的融合时序动态信息和空间表观信息。由于每个HTP模块的时序下采样是采用3D池化操作，因此没有任何额外的参数从而模型也很小。
 
-![img](https://note.youdao.com/yws/public/resource/42667a1e2b11dee4c7eac007437e831b/xmlnote/D07BF6F46FEA456292D0CE0743847A6B/21656)
+![clipboard(8)](/../img/2019-03-05-Hierarchical Temporal Pooling for Efficient Online Action Recognition/clipboard(8).png)
 
+![clipboard(4)](/../img/2019-03-05-Hierarchical Temporal Pooling for Efficient Online Action Recognition/clipboard(4).png)
 
-
-![img](https://note.youdao.com/yws/public/resource/42667a1e2b11dee4c7eac007437e831b/xmlnote/9A4594DED8854452B62CFA9F942FE320/22107)
-
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2019-03-05-Hierarchical Temporal Pooling for Efficient Online Action Recognition/clipboard(5).png)
 
 ### **维度排列调整**
 
@@ -91,7 +85,7 @@ layer {
 
 ### **3D时序池化**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2019-03-05-Hierarchical Temporal Pooling for Efficient Online Action Recognition/clipboard(2).png)
 
 HTP_1 size=2\*3\*3 stride=2\*2\*2
 
@@ -101,7 +95,7 @@ HTP_x size=2\*1\*1 stride=2\*1\*1
 
 本文采用inception结构，N=16，一共有4个HTP模块
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2019-03-05-Hierarchical Temporal Pooling for Efficient Online Action Recognition/clipboard(1).png)
 
 作为参考：
 
@@ -115,19 +109,15 @@ conv5b:16\*1024\*7\*7
 
 ### 1.精度比较：双流结构的比对
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(9)](/../img/2019-03-05-Hierarchical Temporal Pooling for Efficient Online Action Recognition/clipboard(9).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(7)](/../img/2019-03-05-Hierarchical Temporal Pooling for Efficient Online Action Recognition/clipboard(7).png)
 
 ### 2.速率比较（只使用RGB）
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2019-03-05-Hierarchical Temporal Pooling for Efficient Online Action Recognition/clipboard.png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2019-03-05-Hierarchical Temporal Pooling for Efficient Online Action Recognition/clipboard(3).png)
 
 **圆圈的大小代表模型的大小**（由于是在TSN基础上加入无参数的3D池化，因此两者模型大小相等）可以看出，HTP-Net在速度、模型大小、精度多个维度上达到了很好的平衡。（右上角的小圆是理想结构）
 
@@ -142,3 +132,4 @@ conv5b:16\*1024\*7\*7
 
 
 注：收录在MultiMedia Modeling: 25th International Conference, MMM 2019 版权未开放
+

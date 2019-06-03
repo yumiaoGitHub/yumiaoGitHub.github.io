@@ -1,4 +1,3 @@
----
 layout:     post
 title:      Scale Selection Network for Online 3D Action Prediction
 subtitle:   人体动作识别论文阅读-SSNet
@@ -7,8 +6,8 @@ author:     Mily
 header-img: img/post-bg-cook.jpg
 catalog: true
 tags:
+
     - action recognition
----
 
 ## **摘要**
 
@@ -26,11 +25,9 @@ tags:
 
 UCF101和HMDB51都是剪裁好的视频片段，每一个视频只有一个动作类比，但是对于现实生活中的应用，一段视频流可能包含多种行为，并且每种行为的时间长度不一，因此未分割视频的在线行预测问题更具有价值和挑战性。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2018-07-06-SSNet-Scale-Selection-Network-for-Online-3D-Action-Prediction/clipboard(1).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(7)](/../img/2018-07-06-SSNet-Scale-Selection-Network-for-Online-3D-Action-Prediction/clipboard(7).png)
 
 Fig(b)展现了SSNet应用在3D行为预测。t时刻，智能观测到挥手的部分信息，相比于第三层的卷积结果，**SSNet会倾向于选择第二层的卷积结果**。由于第二层的的卷积（时序窗口）包含了当前行为部分，而第三层卷积对应的时间窗口包括了来自前一个行为的信息，会影响当前t时刻的行为判断。
 
@@ -40,7 +37,7 @@ Fig(b)展现了SSNet应用在3D行为预测。t时刻，智能观测到挥手的
 
 ### **利用卷积时序建模**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2018-07-06-SSNet-Scale-Selection-Network-for-Online-3D-Action-Prediction/clipboard(2).png)
 
 每一步，SSNet会预测当前行为的**类别Ct** 和当前行为距离初始点的**距离St**，每一层的卷积参数共享。
 
@@ -48,27 +45,23 @@ Fig(b)展现了SSNet应用在3D行为预测。t时刻，智能观测到挥手的
 
 具体的Ct和St计算过程如下图：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-07-06-SSNet-Scale-Selection-Network-for-Online-3D-Action-Prediction/clipboard(4).png)
 
 如果上一时刻t-1的回归结果St-1表明第三层是最优时间窗口尺度，那么我们的网络则会使用1-3层的应用于类比预测，**在3层以上的则会被抛弃不被激活**。（层级越高，包含了更长时间序列的信息，这里的网络可以找到尽可能多的包含当前行为的图片帧信息，从而避免信息遗漏和冗余）
 
 ### **目标函数**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2018-07-06-SSNet-Scale-Selection-Network-for-Online-3D-Action-Prediction/clipboard(5).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(6)](/../img/2018-07-06-SSNet-Scale-Selection-Network-for-Online-3D-Action-Prediction/clipboard(6).png)
 
 ## **实验分析**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2018-07-06-SSNet-Scale-Selection-Network-for-Online-3D-Action-Prediction/clipboard.png)
 
 SSNet检测速率达到了**70fps**表明该结构响应很快。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2018-07-06-SSNet-Scale-Selection-Network-for-Online-3D-Action-Prediction/clipboard(3).png)
 
 SSNet-GT表明Ground Truth scales，代表了最理想的预测结果，这里SSNet非常接近理想结果，也说明了该方法利用自适应时间滑动窗口，重复挖掘了时序信息。
 
@@ -83,3 +76,4 @@ SSNet-GT表明Ground Truth scales，代表了最理想的预测结果，这里SS
 （4）3D信息，骨架信息都是行为识别输入信息的另一种模态，无论是特征提取还是特征融合，都是可以继续研究的方向。
 
 （5）单纯的分类问题结合回归（跟踪，预测等）可以具有更广阔的应用价值。
+

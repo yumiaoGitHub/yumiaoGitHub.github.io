@@ -12,7 +12,7 @@ tags:
 - action recogniton
 ---
 
-![img](https://note.youdao.com/yws/public/resource/06afc43f2b60191aa76807ac36b48f21/xmlnote/CCAC6F0F6326456CBF439FDB1EDC861D/20584)
+![clipboard(2)](/../img/2018-12-07-Real-world-Anomaly-Detection-in-Surveillance-Videos/clipboard(2).png)
 
 ## **摘要：**
 
@@ -45,19 +45,19 @@ proposal：MIL的目的是得到一个分类器，使得对于待测试的示例
 
 每个视频均匀分为32个片段，作为一个包。训练时，随机选取30个正包和30个负包作为mini-batch进行训练。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2018-12-07-Real-world-Anomaly-Detection-in-Surveillance-Videos/clipboard(3).png)
 
 将异常检测定义为一个回归任务，即异常样本（anormal）的异常值要高于通常样本（normal）。Va和Vn分别为异常和通常样本，f则为模型预测函数。排序损失定义为：
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![aa2a3cb3a6e](/../img/2018-12-07-Real-world-Anomaly-Detection-in-Surveillance-Videos/aa2a3cb3a6e.jpeg)
 
 在训练中对于正包和负包都只使用分数最大的样本来训练。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2018-12-07-Real-world-Anomaly-Detection-in-Surveillance-Videos/clipboard.png)
 
 损失函数定义为：hinge-loss的形式——让正负样本之间的距离尽可能远
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(1)](/../img/2018-12-07-Real-world-Anomaly-Detection-in-Surveillance-Videos/clipboard(1).png)
 
 ### 作者的改进：
 
@@ -65,7 +65,7 @@ proposal：MIL的目的是得到一个分类器，使得对于待测试的示例
 
 **2.稀疏性**：由于正包中的正样本（异常事件）比例很低，所以正包的分数应该是稀疏的。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(4)](/../img/2018-12-07-Real-world-Anomaly-Detection-in-Surveillance-Videos/clipboard(4).png)
 
 ## **实验：**
 
@@ -97,11 +97,7 @@ burglary（100）
 
 该文的方法只是做异常事件proposal，但该文的数据集实际上还能做异常时间分类任务，所以此处作者还用C3D和TCNN两种行为识别算法跑了一个baseline，可以看出此处TCNN的效果还是比C3D要好很多。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![aa2b558455e](/../img/2018-12-07-Real-world-Anomaly-Detection-in-Surveillance-Videos/aa2b558455e.jpeg)
 
 ## **总结思考：**
 

@@ -12,13 +12,13 @@ tags:
 - action recogniton
 ---
 
-![img](https://note.youdao.com/yws/public/resource/2d3196708c7ba90763cbc02096978fe7/xmlnote/D11DD336BA134180ADD4CB010B68BF1F/21458)
+![clipboard(7)](/../img/2019-01-02-Visual-Attribute-Augmented-3D-convolutional-neural-network-for-enhanced-human-action-recognition/clipboard(7).png)
 
 ## **摘要**
 
 虽然3D网络结构在视频动作识别任务中取得了优异的性能，但是由于**缺乏对视频中的视觉属性的显式的学习**，因此对于某些空间整体模式和时间运动模式上很相似的视频类别，3D卷积网络无法区分出来。
 
-![img](https://note.youdao.com/yws/public/resource/2d3196708c7ba90763cbc02096978fe7/xmlnote/824338BFEA5A44628D349CAED3355AB1/21459)
+![clipboard(4)](/../img/2019-01-02-Visual-Attribute-Augmented-3D-convolutional-neural-network-for-enhanced-human-action-recognition/clipboard(4).png)
 
 为了解决这个问题，我们提出了基于视觉属性挖掘，(Visual Attributes Mining)的增强3D网络(A3D，Attributes-augmented 3D CNN)将利用成熟的物体检测算法和自然语言处理领域中的算法来从视频中发现有用的视觉属性，然后将视觉属性和视频关联起来，对视觉属性进行网络进行识别，实验表明我们的方法在引入很小的额外计算开销的情况下，能够提升视频中的动作识别准确率。
 
@@ -34,45 +34,39 @@ tags:
 
 **3.过滤训练：**计算剩余物体区域的类别和视频的类别这两个向量间的距离，由于词向量间的距离越小，词的语义相关性越高，保留距离值小于某个阈值的物体区域，删除距离值大于阈值的物体区域。通过这步操作我们期望视觉属性候选区域中跟类别最相关的部分，而删去相关性不高的部分。经过过滤操作，剩余的物体区域我们就称为视觉属性。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(3)](/../img/2019-01-02-Visual-Attribute-Augmented-3D-convolutional-neural-network-for-enhanced-human-action-recognition/clipboard(3).png)
 
-### **Ａ３Ｄ整体结构**
+### **A3D整体结构**
 
 三路子网络，上面两路网络是I3D中的光流网络和RGB网络，分别通过3D版本的Inception-V1结构，最后得到的结果进行加权相加。最下面一路是本课题提出的基于视觉属性发掘的改进方案。
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(6)](/../img/2019-01-02-Visual-Attribute-Augmented-3D-convolutional-neural-network-for-enhanced-human-action-recognition/clipboard(6).png)
 
 联合推理(T=0.1)
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(9)](/../img/2019-01-02-Visual-Attribute-Augmented-3D-convolutional-neural-network-for-enhanced-human-action-recognition/clipboard(9).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
-
-
+![clipboard(1)](/../img/2019-01-02-Visual-Attribute-Augmented-3D-convolutional-neural-network-for-enhanced-human-action-recognition/clipboard(1).png)
 
 ## **实验结果**
 
 ### **1.实验优化**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(8)](/../img/2019-01-02-Visual-Attribute-Augmented-3D-convolutional-neural-network-for-enhanced-human-action-recognition/clipboard(8).png)
 
 特征融合方法在UCF101数据集上有1.48％的性能提升，在HMDB51上也有0.22％的性能提升。在更前面的层进行了特征融合，因此包含更多的低层信息，这些信息相比最后的概率值，有更好的表达能力。
 
 ### **2.精度提升**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(2)](/../img/2019-01-02-Visual-Attribute-Augmented-3D-convolutional-neural-network-for-enhanced-human-action-recognition/clipboard(2).png)
 
 A3D多了视觉属性检测和分类的一路，因此增加了一些额外的时间开销。但是发现额外的时间开销所占比例比较小，在训练集上额外时间开销分别占8.76％和6.71％，而在测试集上额外时间开销增加不到２％。
 
 ### **3.可行性体现**
 
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard(5)](/../img/2019-01-02-Visual-Attribute-Augmented-3D-convolutional-neural-network-for-enhanced-human-action-recognition/clipboard(5).png)
 
-
-
-![img](https://note.youdao.com/ynoteshare1/images/replace-img.png)
+![clipboard](/../img/2019-01-02-Visual-Attribute-Augmented-3D-convolutional-neural-network-for-enhanced-human-action-recognition/clipboard.png)
 
 ## **总结反思**
 
