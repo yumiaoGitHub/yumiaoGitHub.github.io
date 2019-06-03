@@ -1,3 +1,4 @@
+---
 layout: post
 
 title: Rank pooling论文进阶史
@@ -5,11 +6,12 @@ title: Rank pooling论文进阶史
 subtitle:   动作识别论文阅读
 date: 2018-12-03
 author: Mily
-header-img: img/post-bg-cook.jpg
+header-img: /../img/2018-12-03-Rank-pooling论文进阶史/darwin.png
 catalog: true
 tags:
 
 - action recogniton
+---
 
 ## **一 . 起**
 
